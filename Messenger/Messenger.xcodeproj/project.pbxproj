@@ -23,6 +23,7 @@
 		77CAB5142A9C276E0027D1A9 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CAB5132A9C276E0027D1A9 /* VideoPlayerViewController.swift */; };
 		77CAB5162A9C278B0027D1A9 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CAB5152A9C278B0027D1A9 /* NewConversationViewController.swift */; };
 		77CAB5182A9C279C0027D1A9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CAB5172A9C279C0027D1A9 /* ProfileViewController.swift */; };
+		77CAB51B2A9C2C360027D1A9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CAB51A2A9C2C360027D1A9 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		77CAB5132A9C276E0027D1A9 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		77CAB5152A9C278B0027D1A9 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		77CAB5172A9C279C0027D1A9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		77CAB51A2A9C2C360027D1A9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,8 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				77CAB4D82A9C24A40027D1A9 /* ConversationsViewController.swift */,
-				77CAB50D2A9C27390027D1A9 /* LoginViewController.swift */,
-				77CAB50F2A9C27430027D1A9 /* RegisterViewController.swift */,
+				77CAB5192A9C28640027D1A9 /* Onboarding */,
 				77CAB5112A9C27650027D1A9 /* PhotoViewerViewController.swift */,
 				77CAB5132A9C276E0027D1A9 /* VideoPlayerViewController.swift */,
 				77CAB5152A9C278B0027D1A9 /* NewConversationViewController.swift */,
@@ -183,6 +184,7 @@
 			children = (
 				77CAB4D42A9C24A40027D1A9 /* AppDelegate.swift */,
 				77CAB4D62A9C24A40027D1A9 /* SceneDelegate.swift */,
+				77CAB51A2A9C2C360027D1A9 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -194,6 +196,15 @@
 				77CAB4E22A9C24A60027D1A9 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		77CAB5192A9C28640027D1A9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				77CAB50D2A9C27390027D1A9 /* LoginViewController.swift */,
+				77CAB50F2A9C27430027D1A9 /* RegisterViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +347,7 @@
 				77CAB5142A9C276E0027D1A9 /* VideoPlayerViewController.swift in Sources */,
 				77CAB5162A9C278B0027D1A9 /* NewConversationViewController.swift in Sources */,
 				77CAB50E2A9C27390027D1A9 /* LoginViewController.swift in Sources */,
+				77CAB51B2A9C2C360027D1A9 /* Extensions.swift in Sources */,
 				77CAB4DF2A9C24A40027D1A9 /* Messenger.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
