@@ -76,7 +76,7 @@ class LoginViewController: UIViewController {
                                                             target: self,
                                                             action: #selector(didTapRegister))
         
-        loginButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         
         emailField.delegate = self
         passwordField.delegate = self
@@ -111,7 +111,7 @@ class LoginViewController: UIViewController {
                                      height: 52)
     }
     
-    @objc private func registerButtonTapped() {
+    @objc private func loginButtonTapped() {
         
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
@@ -122,14 +122,20 @@ class LoginViewController: UIViewController {
         }
         
         // firebase login
-        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] authResult, error in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
             guard let result = authResult, error == nil else {
                 print("failed to login user: \(email)")
                 return
             }
             let user = result.user
             print("Logged in \(user)")
-        }
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+        })
         
     }
 
@@ -159,7 +165,7 @@ extension LoginViewController: UITextFieldDelegate {
         if textField == emailField {
             passwordField.becomeFirstResponder()
         } else if textField == passwordField {
-            registerButtonTapped()
+            loginButtonTapped()
         }
         return true
     }

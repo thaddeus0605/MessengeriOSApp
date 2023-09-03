@@ -19,11 +19,11 @@ class RegisterViewController: UIViewController {
     
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person")
+        imageView.image = UIImage(systemName: "person.circle")
         imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
-        imageView.layer.borderWidth = 2
+        //        imageView.layer.borderWidth = 2
         imageView.layer.borderColor = UIColor.lightGray.cgColor
         return imageView
     }()
@@ -129,7 +129,7 @@ class RegisterViewController: UIViewController {
         
         let gesture = UITapGestureRecognizer(target: self,
                                              action: #selector(didTapChangeProfilePic))
-      
+        
         gesture.numberOfTouchesRequired = 1
         profileImageView.addGestureRecognizer(gesture)
     }
@@ -139,9 +139,9 @@ class RegisterViewController: UIViewController {
         scrollView.frame = view.bounds
         let size = scrollView.width/3
         profileImageView.frame = CGRect(x: (scrollView.width-size)/2,
-                                     y: 20,
-                                     width: size,
-                                     height: size)
+                                        y: 20,
+                                        width: size,
+                                        height: size)
         profileImageView.layer.cornerRadius = profileImageView.width / 2
         firstNameField.frame = CGRect(x: 30,
                                       y: profileImageView.bottom+40,
@@ -180,22 +180,41 @@ class RegisterViewController: UIViewController {
               !email.isEmpty,
               !password.isEmpty,
               !firstName.isEmpty,
-                !lastName.isEmpty,
+              !lastName.isEmpty,
               password.count >= 6 else {
             alertUserRegisterError()
             return
         }
         
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
-            guard let result = authResult, error == nil else {
-                print("Error creating user")
+        
+        DatabaseManager.shared.userExists(with: email, completion: { [weak self] exists in
+            
+            guard let strongSelf = self else {
                 return
             }
             
-            let user = result.user
-            print("created user \(user)")
+            guard exists else {
+                self?.alertUserRegisterError(message: "That email already exists")
+                return
+            }
+            
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {  authResult, error in
+                
+                guard authResult != nil, error == nil else {
+                    print("Error creating user")
+                    return
+                }
+                
+                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
+                                                                    lastName: lastName,
+                                                                    emailAddress: email))
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
+            
+            
             
         })
+        
         
     }
     
@@ -204,9 +223,9 @@ class RegisterViewController: UIViewController {
     }
     
     
-    func alertUserRegisterError() {
+    func alertUserRegisterError(message:String = "Please enter all information to create a new account") {
         let alert = UIAlertController(title: "Whoops",
-                                      message: "Please enter all information to continue.",
+                                      message: message,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss",
                                       style: .cancel,
@@ -276,7 +295,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
         guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
-
+        
         self.profileImageView.image = selectedImage
     }
     
