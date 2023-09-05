@@ -193,7 +193,7 @@ class RegisterViewController: UIViewController {
                 return
             }
             
-            guard exists else {
+            guard !exists else {
                 self?.alertUserRegisterError(message: "That email already exists")
                 return
             }
