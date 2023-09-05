@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import FirebaseCore
 import FacebookCore
+import GoogleSignIn
 
 
 @main
@@ -25,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 application,
                 didFinishLaunchingWithOptions: launchOptions
             )
-            
             return true
         }
               
@@ -40,8 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                 annotation: options[UIApplication.OpenURLOptionsKey.annotation]
             )
+            return GIDSignIn.sharedInstance.handle(url)
         }
     
+     
 
     // MARK: - Core Data stack
 

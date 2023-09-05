@@ -14,8 +14,8 @@
             filePath = "Messenger/Controllers/Onboarding/LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "loginButtonTapped()"
             landmarkType = "7">
          </BreakpointContent>

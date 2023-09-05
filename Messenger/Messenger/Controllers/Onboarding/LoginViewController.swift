@@ -8,6 +8,8 @@
 import UIKit
 import FirebaseAuth
 import FacebookLogin
+import FirebaseCore
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
@@ -74,6 +76,12 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    private let googleSignInButton: GIDSignInButton = {
+        let button = GIDSignInButton()
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Log In"
@@ -84,7 +92,7 @@ class LoginViewController: UIViewController {
                                                             action: #selector(didTapRegister))
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-        
+        googleSignInButton.addTarget(self, action: #selector(googleSignIn), for: .touchUpInside)
         emailField.delegate = self
         passwordField.delegate = self
         fbLoginButton.delegate = self
@@ -97,6 +105,7 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
         scrollView.addSubview(fbLoginButton)
+        scrollView.addSubview(googleSignInButton)
     }
     
     override func viewDidLayoutSubviews() {
@@ -123,6 +132,11 @@ class LoginViewController: UIViewController {
                                      y: loginButton.bottom+20,
                                      width: scrollView.width - 60,
                                      height: 52)
+        googleSignInButton.frame = CGRect(x: 30,
+                                     y: fbLoginButton.bottom+20,
+                                     width: scrollView.width - 60,
+                                     height: 52)
+
     }
     
     @objc private func loginButtonTapped() {
@@ -185,6 +199,48 @@ extension LoginViewController: UITextFieldDelegate {
     }
 }
 
+//MARK: - Google SignIn
+extension LoginViewController {
+    @objc func googleSignIn() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else {
+            return
+        }
+        
+        //Create Google Sig In Configuration object
+        
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+        
+        //Start the sigin in flow!
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
+            guard error == nil else {
+                print("error signing in with google")
+                return
+            }
+            guard let user = result?.user,
+                  let idToken = user.idToken?.tokenString
+            else {
+                return
+            }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
+            
+            Auth.auth().signIn(with: credential) { authResult, error in
+                
+                
+                guard (authResult != nil), error == nil else {
+                    print("Error signing in")
+                    return
+                }
+                self.navigationController?.dismiss(animated: true, completion: nil)
+                
+            }
+        }
+    }
+}
+
+
+//MARK: - Facebook SignIn
 extension LoginViewController: LoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginKit.FBLoginButton) {
         // no operation
