@@ -194,7 +194,8 @@ class RegisterViewController: UIViewController {
             }
             
             guard !exists else {
-                self?.alertUserRegisterError(message: "That email already exists")
+                print("user exists")
+                strongSelf.alertUserRegisterError(message: "A user with the email already exists")
                 return
             }
             
@@ -231,9 +232,6 @@ class RegisterViewController: UIViewController {
                                       style: .cancel,
                                       handler: nil))
         present(alert, animated: true)
-        
-        
-        
     }
     
     @objc private func didTapRegister() {

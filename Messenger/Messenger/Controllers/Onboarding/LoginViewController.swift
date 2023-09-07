@@ -217,17 +217,35 @@ extension LoginViewController {
                 print("error signing in with google")
                 return
             }
+            
+            print("google has signed in")
+            
+            
             guard let user = result?.user,
                   let idToken = user.idToken?.tokenString
             else {
                 return
             }
             
+            guard let email = user.profile?.email,
+                  let firstName = user.profile?.givenName,
+                  let lastName = user.profile?.familyName else {
+                return
+            }
+            
+            DatabaseManager.shared.userExists(with: email) { exists in
+                if !exists {
+                    DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
+                                                                        lastName: lastName,
+                                                                        emailAddress: email))
+                }
+            }
+            
+            print("google user added to database")
+            
             let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
             
             Auth.auth().signIn(with: credential) { authResult, error in
-                
-                
                 guard (authResult != nil), error == nil else {
                     print("Error signing in")
                     return
