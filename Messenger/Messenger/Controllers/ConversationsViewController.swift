@@ -11,9 +11,18 @@ import FirebaseAuth
 class ConversationsViewController: UIViewController {
 
     
+    
+    private let conversationTableView: UITableView = {
+       let tableView = UITableView()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        view.addSubview(conversationTableView)
         
        
     }
@@ -23,6 +32,10 @@ class ConversationsViewController: UIViewController {
         super.viewDidAppear(animated)
         validateAuth()
       
+    }
+    
+    override func viewDidLayoutSubviews() {
+        conversationTableView.frame = view.frame
     }
     
     

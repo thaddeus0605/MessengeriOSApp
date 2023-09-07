@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77428D782AAA92DB007DECA7 /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77428D772AAA92DB007DECA7 /* MessageKit */; };
+		77428D7B2AAA92F4007DECA7 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 77428D7A2AAA92F4007DECA7 /* JGProgressHUD */; };
+		77428D7E2AAA9352007DECA7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 77428D7D2AAA9352007DECA7 /* Realm */; };
+		77428D802AAA9352007DECA7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 77428D7F2AAA9352007DECA7 /* RealmSwift */; };
+		77428D832AAA937F007DECA7 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 77428D822AAA937F007DECA7 /* SDWebImage */; };
 		7761F0962A9FF6F6005E14FF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7761F0952A9FF6F6005E14FF /* DatabaseManager.swift */; };
 		77A341C22AA5545000EA99F2 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = 77A341C12AA5545000EA99F2 /* FacebookBasics */; };
 		77A341C42AA5545000EA99F2 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 77A341C32AA5545000EA99F2 /* FacebookCore */; };
@@ -96,20 +101,25 @@
 				77A341C22AA5545000EA99F2 /* FacebookBasics in Frameworks */,
 				77A341C92AA77FC900EA99F2 /* GoogleSignIn in Frameworks */,
 				77CAB5242A9E3EBF0027D1A9 /* FirebaseAnalyticsSwift in Frameworks */,
+				77428D782AAA92DB007DECA7 /* MessageKit in Frameworks */,
 				77CAB52A2A9E3EBF0027D1A9 /* FirebaseAuthCombine-Community in Frameworks */,
 				77CAB5282A9E3EBF0027D1A9 /* FirebaseAuth in Frameworks */,
 				77CAB5322A9E3EBF0027D1A9 /* FirebaseFirestore in Frameworks */,
 				77A341C62AA5545000EA99F2 /* FacebookLogin in Frameworks */,
+				77428D832AAA937F007DECA7 /* SDWebImage in Frameworks */,
 				77CAB5302A9E3EBF0027D1A9 /* FirebaseDatabaseSwift in Frameworks */,
+				77428D802AAA9352007DECA7 /* RealmSwift in Frameworks */,
 				77CAB5342A9E3EBF0027D1A9 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				77A341CB2AA77FC900EA99F2 /* GoogleSignInSwift in Frameworks */,
 				77CAB52C2A9E3EBF0027D1A9 /* FirebaseCrashlytics in Frameworks */,
 				77CAB5202A9E3EBF0027D1A9 /* FirebaseAnalytics in Frameworks */,
 				77A341C42AA5545000EA99F2 /* FacebookCore in Frameworks */,
+				77428D7E2AAA9352007DECA7 /* Realm in Frameworks */,
 				77CAB5222A9E3EBF0027D1A9 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				77CAB52E2A9E3EBF0027D1A9 /* FirebaseDatabase in Frameworks */,
 				77CAB5262A9E3EBF0027D1A9 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				77CAB5362A9E3EBF0027D1A9 /* FirebaseFirestoreSwift in Frameworks */,
+				77428D7B2AAA92F4007DECA7 /* JGProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +291,11 @@
 				77A341C52AA5545000EA99F2 /* FacebookLogin */,
 				77A341C82AA77FC900EA99F2 /* GoogleSignIn */,
 				77A341CA2AA77FC900EA99F2 /* GoogleSignInSwift */,
+				77428D772AAA92DB007DECA7 /* MessageKit */,
+				77428D7A2AAA92F4007DECA7 /* JGProgressHUD */,
+				77428D7D2AAA9352007DECA7 /* Realm */,
+				77428D7F2AAA9352007DECA7 /* RealmSwift */,
+				77428D822AAA937F007DECA7 /* SDWebImage */,
 			);
 			productName = Messenger;
 			productReference = 77CAB4D12A9C24A40027D1A9 /* Messenger.app */;
@@ -358,6 +373,10 @@
 				77CAB51E2A9E3EBF0027D1A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				77A341C02AA5545000EA99F2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				77A341C72AA77FC900EA99F2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				77428D762AAA92DB007DECA7 /* XCRemoteSwiftPackageReference "MessageKit" */,
+				77428D792AAA92F4007DECA7 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				77428D7C2AAA9352007DECA7 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				77428D812AAA937F007DECA7 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 77CAB4D22A9C24A40027D1A9 /* Products */;
 			projectDirPath = "";
@@ -767,6 +786,38 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		77428D762AAA92DB007DECA7 /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+		77428D792AAA92F4007DECA7 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+		77428D7C2AAA9352007DECA7 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		77428D812AAA937F007DECA7 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.0;
+			};
+		};
 		77A341C02AA5545000EA99F2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
@@ -794,6 +845,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		77428D772AAA92DB007DECA7 /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77428D762AAA92DB007DECA7 /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
+		};
+		77428D7A2AAA92F4007DECA7 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77428D792AAA92F4007DECA7 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		77428D7D2AAA9352007DECA7 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77428D7C2AAA9352007DECA7 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		77428D7F2AAA9352007DECA7 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77428D7C2AAA9352007DECA7 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		77428D822AAA937F007DECA7 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77428D812AAA937F007DECA7 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		77A341C12AA5545000EA99F2 /* FacebookBasics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 77A341C02AA5545000EA99F2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
