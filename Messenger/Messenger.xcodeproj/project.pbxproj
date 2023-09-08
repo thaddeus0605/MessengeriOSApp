@@ -12,6 +12,7 @@
 		77428D7E2AAA9352007DECA7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 77428D7D2AAA9352007DECA7 /* Realm */; };
 		77428D802AAA9352007DECA7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 77428D7F2AAA9352007DECA7 /* RealmSwift */; };
 		77428D832AAA937F007DECA7 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 77428D822AAA937F007DECA7 /* SDWebImage */; };
+		77428D852AAA9D0E007DECA7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428D842AAA9D0E007DECA7 /* ChatViewController.swift */; };
 		7761F0962A9FF6F6005E14FF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7761F0952A9FF6F6005E14FF /* DatabaseManager.swift */; };
 		77A341C22AA5545000EA99F2 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = 77A341C12AA5545000EA99F2 /* FacebookBasics */; };
 		77A341C42AA5545000EA99F2 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 77A341C32AA5545000EA99F2 /* FacebookCore */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		77428D842AAA9D0E007DECA7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		7761F0952A9FF6F6005E14FF /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		77A341CE2AA7803200EA99F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77CAB4D12A9C24A40027D1A9 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +203,7 @@
 				77CAB5132A9C276E0027D1A9 /* VideoPlayerViewController.swift */,
 				77CAB5152A9C278B0027D1A9 /* NewConversationViewController.swift */,
 				77CAB5172A9C279C0027D1A9 /* ProfileViewController.swift */,
+				77428D842AAA9D0E007DECA7 /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				77CAB5142A9C276E0027D1A9 /* VideoPlayerViewController.swift in Sources */,
 				77CAB5162A9C278B0027D1A9 /* NewConversationViewController.swift in Sources */,
 				7761F0962A9FF6F6005E14FF /* DatabaseManager.swift in Sources */,
+				77428D852AAA9D0E007DECA7 /* ChatViewController.swift in Sources */,
 				77CAB50E2A9C27390027D1A9 /* LoginViewController.swift in Sources */,
 				77CAB51B2A9C2C360027D1A9 /* Extensions.swift in Sources */,
 				77CAB4DF2A9C24A40027D1A9 /* Messenger.xcdatamodeld in Sources */,
